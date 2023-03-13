@@ -3,8 +3,10 @@ FROM node:18-alpine as development
 WORKDIR /usr/src/app
 COPY --chown=node:node package*.json ./
 # RUN npm i -g npm@latest
-RUN npm ci
+RUN npm ci --omit=dev
+# RUN npm install
 COPY --chown=node:node . .
+# RUN npx prisma db push
 USER node
 
 # build for production
