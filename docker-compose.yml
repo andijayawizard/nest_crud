@@ -1,0 +1,48 @@
+version: '3'
+services: 
+  mysql:
+    image: mysql
+    container_name: mysql-on-docker
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    ports: 
+      - 33066:3306
+    environment: 
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      # MYSQL_DATABASE: ${MYSQL_DATABASE}
+      # MYSQL_USER: ${MYSQL_USER}
+      # MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes: 
+      - db-nest-crud:/var/lib/mysql
+  adminer: 
+    image: adminer
+    container_name: adminer-on-docker
+    restart: always
+    ports: 
+      - 8091:8080
+  # postgres:
+  #   image: postgres:latest
+  #   container_name: postgres_on_docker
+  #   restart: always
+  #   ports: 
+  #     - 54320:5432
+  #   environment: 
+  #     - POSTGRES_USER=root
+  #     - POSTGRES_PASSWORD=r00t
+  #   volumes:
+  #     - postgres:/var/lib/postgresql/data
+  # pgadmin:
+  #   image: dpage/pgadmin4:latest
+  #   container_name: pgadmin_on_docker
+  #   restart: always
+  #   ports: 
+  #     - 5050:80
+  #   environment: 
+  #     PGADMIN_DEFAULT_EMAIL: root@gmail.com
+  #     PGADMIN_DEFAULT_PASSWORD: r00t
+  #   volumes: 
+  #     - pgadmin-data:/var/lib/pgadmin
+volumes: 
+  db-nest-crud:
+  # postgres:
+  # pgadmin-data:
