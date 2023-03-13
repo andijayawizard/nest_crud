@@ -1,5 +1,10 @@
 version: '3'
 services: 
+  app: 
+    image: andijaya/nest-crud
+    container_name: nest-crud-on-docker
+    ports: 
+      - 3001:3000
   mysql:
     image: mysql
     container_name: mysql-on-docker
