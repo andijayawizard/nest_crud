@@ -4,7 +4,7 @@ import { compare } from 'bcrypt';
 import { JwtConfig } from 'src/jwt.config';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { LoginDto } from './dto/login.dto';
-
+import { omit } from 'lodash';
 @Injectable()
 export class AuthService {
   constructor(
