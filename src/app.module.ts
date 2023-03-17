@@ -4,9 +4,20 @@ import { AppService } from './app.service';
 import { PrismaModule } from './prisma/prisma.module';
 import { BiodataModule } from './crud/biodata/biodata.module';
 import { AuthModule } from './auth/auth.module';
+import { UploadGambarModule } from './upload-gambar/upload-gambar.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
-  imports: [PrismaModule, BiodataModule, AuthModule],
+  imports: [
+    PrismaModule,
+    BiodataModule,
+    AuthModule,
+    UploadGambarModule,
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'public'),
+    }),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
