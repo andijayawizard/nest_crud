@@ -7,7 +7,7 @@ import { UpdateMovieDto } from './dto/update-movie.dto';
 export class MovieService {
   constructor(private prismaService: PrismaService) {}
   async create(createMovieDto: CreateMovieDto) {
-    const create = await this.prismaService.biodata.create({
+    const create = await this.prismaService.movie.create({
       data: createMovieDto,
     });
     if (create) {
@@ -20,18 +20,45 @@ export class MovieService {
   }
 
   async findAll() {
-    return `This action returns all movie`;
+    const movie = await this.prismaService.movie.findMany();
+    return {
+      statusCode: 200,
+      message: 'success',
+      data: movie ?? [],
+    };
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} movie`;
+  async findOne(id: number) {
+    const movie = await this.prismaService.movie.findFirst({ where: { id } });
+    return {
+      statusCode: 200,
+      message: 'success',
+      data: movie ?? {},
+    };
   }
 
-  update(id: number, updateMovieDto: UpdateMovieDto) {
-    return `This action updates a #${id} movie`;
+  async update(id: number, updateMovieDto: UpdateMovieDto) {
+    const movie = await this.prismaService.movie.update({
+      where: { id },
+      data: updateMovieDto,
+    });
+    if (movie) {
+      return {
+        statusCode: 200,
+        message: 'success',
+        data: movie ?? {},
+      };
+    }
+    throw new HttpException('bad request', HttpStatus.BAD_REQUEST);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} movie`;
+  async remove(id: number) {
+    const movie = await this.prismaService.movie.delete({ where: { id } });
+    if (movie) {
+      return {
+        statusCode: 200,
+        message: 'success',
+      };
+    }
   }
 }
