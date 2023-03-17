@@ -1,16 +1,5 @@
 version: '3'
 services: 
-  app: 
-    image: andijaya/nest-crud
-    container_name: app-on-docker
-    env_file:
-      - .env
-    ports: 
-      - 3000:3000
-    depends_on:
-      - mysql
-    # networks:
-    #   - mysql
   mysql:
     image: mysql
     container_name: mysql-on-docker
@@ -25,6 +14,17 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes: 
       - db-nest-crud:/var/lib/mysql
+    # networks:
+    #   - mysql
+  app: 
+    image: andijaya/nest-crud
+    container_name: app-on-docker
+    env_file:
+      - .env
+    ports: 
+      - 3000:3000
+    depends_on:
+      - mysql
     # networks:
     #   - mysql
   adminer: 

@@ -7,6 +7,8 @@ import { AuthModule } from './auth/auth.module';
 import { UploadGambarModule } from './upload-gambar/upload-gambar.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import { TodoModule } from './crud/todo/todo.module';
+import { MovieModule } from './crud/movie/movie.module';
 
 @Module({
   imports: [
@@ -17,6 +19,8 @@ import { join } from 'path';
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
     }),
+    TodoModule,
+    MovieModule,
   ],
   controllers: [AppController],
   providers: [AppService],
