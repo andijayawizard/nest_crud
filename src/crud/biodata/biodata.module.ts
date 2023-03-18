@@ -4,6 +4,6 @@ import { BiodataController } from './biodata.controller';
 
 @Module({
   controllers: [BiodataController],
-  providers: [BiodataService]
+  providers: [BiodataService],
 })
 export class BiodataModule {}
