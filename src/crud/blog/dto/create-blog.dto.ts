@@ -6,7 +6,7 @@ export class CreateBlogDto implements Prisma.blogCreateInput {
   @IsNotEmpty()
   authorId: number;
 
-  author;
+  author: any;
 
   @IsString()
   @IsNotEmpty()

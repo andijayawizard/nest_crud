@@ -44,7 +44,7 @@ model movie{
 }
 model blog{
   id            Int         @id @default(autoincrement())
-  author        users       @relation(fields: [authorId],references: [id])
+  author        users       @relation(fields: [authorId],references: [id],onDelete: Cascade)
   authorId      Int
   nama          String      @db.VarChar(100)
   rgks          String      @db.Text
