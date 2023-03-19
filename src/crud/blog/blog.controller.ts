@@ -6,7 +6,9 @@ import {
   Patch,
   Param,
   Delete,
+  UseGuards,
 } from '@nestjs/common';
+import { JwtAuthGuard } from 'src/auth/jwt-auth/jwt-auth.guard';
 import { BlogService } from './blog.service';
 import { CreateBlogDto } from './dto/create-blog.dto';
 import { UpdateBlogDto } from './dto/update-blog.dto';
@@ -20,6 +22,7 @@ export class BlogController {
     return await this.blogService.create(createBlogDto);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get()
   async findAll() {
     return await this.blogService.findAll();

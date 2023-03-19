@@ -1,9 +1,12 @@
+import { Prisma } from '@prisma/client';
 import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
-export class CreateBlogDto {
+export class CreateBlogDto implements Prisma.blogCreateInput {
   @IsNumber()
   @IsNotEmpty()
   authorId: number;
+
+  author;
 
   @IsString()
   @IsNotEmpty()
