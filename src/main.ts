@@ -5,10 +5,10 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const config = new DocumentBuilder()
-    .setTitle('Open API Test Dansmultipro')
-    .setDescription('API Test Dansmultipro')
+    .setTitle('Open API andijayawizard')
+    .setDescription('Open API andijayawizard')
     .setVersion('1.0')
-    .addTag('dansmultipro')
+    .addTag('andijayawizard')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('openapi', app, document);
