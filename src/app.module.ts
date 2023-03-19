@@ -9,6 +9,7 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { TodoModule } from './crud/todo/todo.module';
 import { MovieModule } from './crud/movie/movie.module';
+import { BlogModule } from './crud/blog/blog.module';
 
 @Module({
   imports: [
@@ -16,11 +17,12 @@ import { MovieModule } from './crud/movie/movie.module';
     BiodataModule,
     AuthModule,
     UploadGambarModule,
-    ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'public'),
-    }),
+    // ServeStaticModule.forRoot({
+    //   rootPath: join(__dirname, '..', 'public'),
+    // }),
     TodoModule,
     MovieModule,
+    BlogModule,
   ],
   controllers: [AppController],
   providers: [AppService],
