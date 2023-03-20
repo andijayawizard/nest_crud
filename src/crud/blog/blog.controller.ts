@@ -22,7 +22,7 @@ export class BlogController {
     return await this.blogService.create(createBlogDto);
   }
 
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   @Get()
   async findAll() {
     return await this.blogService.findAll();
