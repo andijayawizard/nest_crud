@@ -1,4 +1,4 @@
 export const JwtConfig = {
-  user_secret: '7Myh9rN0y9PCrFYMVeuZCiGDLsISWkezBMI7adli877=',
+  user_secret: 'user-secret',
   user_expired: '1000s',
 };
