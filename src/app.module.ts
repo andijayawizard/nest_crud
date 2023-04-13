@@ -10,6 +10,7 @@ import { join } from 'path';
 import { TodoModule } from './crud/todo/todo.module';
 import { MovieModule } from './crud/movie/movie.module';
 import { BlogModule } from './crud/blog/blog.module';
+import { UsersModule } from './crud/users/users.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { BlogModule } from './crud/blog/blog.module';
     TodoModule,
     MovieModule,
     BlogModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
