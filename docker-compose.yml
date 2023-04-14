@@ -16,15 +16,15 @@ services:
       - db-nest-crud:/var/lib/mysql
     # networks:
     #   - mysql
-  app: 
-    image: andijaya/nest-crud
-    container_name: app-on-docker
-    env_file:
-      - .env
-    ports: 
-      - 3000:3000
-    depends_on:
-      - mysql
+  # app: 
+  #   image: andijaya/nest-crud
+  #   container_name: app-on-docker
+  #   env_file:
+  #     - .env
+  #   ports: 
+  #     - 3000:3000
+  #   depends_on:
+  #     - mysql
     # networks:
     #   - mysql
   adminer: 

@@ -11,6 +11,7 @@ import { TodoModule } from './crud/todo/todo.module';
 import { MovieModule } from './crud/movie/movie.module';
 import { BlogModule } from './crud/blog/blog.module';
 import { UsersModule } from './crud/users/users.module';
+import { ArticlesModule } from './crud/articles/articles.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { UsersModule } from './crud/users/users.module';
     MovieModule,
     BlogModule,
     UsersModule,
+    ArticlesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
