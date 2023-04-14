@@ -5,12 +5,12 @@ export class CreateArticleDto {
     @ApiProperty()
     title:string
     
-    @ApiProperty({required:false})
-    description?:string
+    @ApiProperty({})
+    description:string
 
-    @ApiProperty({required:false})
-    body?:string
+    @ApiProperty({})
+    body:string
 
-    @ApiProperty({required:false, default:false})
-    published?:boolean=false
+    @ApiProperty({default:false})
+    published:boolean=false
 }
