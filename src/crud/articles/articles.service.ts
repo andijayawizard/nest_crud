@@ -11,7 +11,7 @@ export class ArticlesService {
     // if(createArticle){
     //   return {message:'success'}
     // }
-    // return await this.prisma.article.create({data:createArticleDto})
+    return await this.prisma.article.create({data:createArticleDto})
   }
 
 async  findAll() {
