@@ -12,8 +12,10 @@ import {
 import { BiodataService } from './biodata.service';
 import { CreateBiodatumDto } from './dto/create-biodatum.dto';
 import { UpdateBiodatumDto } from './dto/update-biodatum.dto';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('biodata')
+@ApiTags('biodata')
 export class BiodataController {
   constructor(private readonly biodataService: BiodataService) {}
 
