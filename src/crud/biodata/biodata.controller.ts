@@ -12,7 +12,8 @@ import {
 import { BiodataService } from './biodata.service';
 import { CreateBiodatumDto } from './dto/create-biodatum.dto';
 import { UpdateBiodatumDto } from './dto/update-biodatum.dto';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiCreatedResponse, ApiTags } from '@nestjs/swagger';
+import { Biodatum } from './entities/biodatum.entity';
 
 @Controller('biodata')
 @ApiTags('biodata')
@@ -20,6 +21,7 @@ export class BiodataController {
   constructor(private readonly biodataService: BiodataService) {}
 
   @Post()
+  @ApiCreatedResponse({ type: Biodatum })
   @UsePipes(ValidationPipe)
   async create(@Body() createBiodatumDto: CreateBiodatumDto) {
     return await this.biodataService.create(createBiodatumDto);

@@ -1,25 +1,25 @@
-import { ApiProperty } from "@nestjs/swagger";
-import { article } from "@prisma/client";
+import { ApiProperty } from '@nestjs/swagger';
+import { article } from '@prisma/client';
 
 export class Article implements article {
-    @ApiProperty()
-    id:number
-    
-    @ApiProperty({required:true})
-    title:string
+  @ApiProperty()
+  id: number;
 
-    @ApiProperty({nullable:true})
-    description:string|null
+  @ApiProperty({ required: true })
+  title: string;
 
-    @ApiProperty()
-    body:string
+  @ApiProperty({ nullable: true })
+  description: string | null;
 
-    @ApiProperty()
-    published:boolean=false
+  @ApiProperty()
+  body: string;
 
-    @ApiProperty()
-    createdAt:Date
-    
-    @ApiProperty()
-    updatedAt:Date
+  @ApiProperty()
+  published = false;
+
+  @ApiProperty()
+  createdAt: Date;
+
+  @ApiProperty()
+  updatedAt: Date;
 }
